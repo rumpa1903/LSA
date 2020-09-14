@@ -1,4 +1,4 @@
-# Practical-1[14/09, 5:35 pm] Prithvi NL Colg: Install DHCP Server in Ubuntu 16.04
+# Practical-1: Install DHCP Server in Ubuntu 16.04
 Dynamic Host Configuration Protocol (DHCP) is a network protocol that is used to enable host computers to be automatically assigned IP addresses and related network configurations from a server.
 
 Steps to install dhcp server in Ubuntu 16.04:-
@@ -45,7 +45,7 @@ sudo systemctl restart isc-dhcp-server
 The commands to start and stop this service are:
 Start service:-sudo systemctl start isc-dhcp-server
 Stop service:-sudo systemctl stop isc-dhcp-server
-[14/09, 5:36 pm] Prithvi NL Colg: Add a User in a kali linux
+: Add a User in a kali linux
 Command :- adduser username
 Network Setting In Kali Linux
 IP Address
