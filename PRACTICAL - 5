@@ -1,0 +1,46 @@
+Samba is the standard Windows interoperability suite of programs
+ for Linux and Unix.
+
+Since 1992, Samba has provided secure, 
+stable and fast file and print services for all clients 
+using the SMB/CIFS protocol, such as all versions of 
+DOS and Windows, OS/2, Linux and many others.
+
+
+steps to do samba practical:
+
+install samba
+In /home/kali make  samba_shared directory
+/home/kali/samba_shared me touch a.txt b.txt c.txt
+cd /etc/samba
+ls /etc/samba
+cp smb.conf smb.conf_bkp (for backup)
+sudo nano smb.conf
+delete all thing inside smb.conf and then write:
+
+[Samba_Shared]
+   comment =Welcome to samba
+   path = /home/kali/samba_shared
+   browseable = yes
+   read only = yes
+
+then ctrl x and then y and save 
+download smbclient if not there
+then do:
+sudo systemctl start smbd
+sudo systemctl stop nmbd
+check both their statuses
+do : whoami command
+then: sudo pdbedit -a -u $(whoami)
+type and retype your passwd
+sudo pdbedit -L (to check all users)
+sudo ufw allow from 192.168.0.0/16 (or24 my ip was 168.52.128/24) to any app Samba
+(this will make any connectionn possible to connect)
+check for your ip too : ip a or ip addr
+do: sudo ufw reload  (will reload your firewall)
+you can check your working or not by :
+sudo smbcllient -U <username>(mine is kali) -L  //your ip
+you can also try restarting your smbd and nmbd
+sudo systemctl restart smbd/nmbd
+and then check their status'
+then copy your ip addr and then paste in windows ka run option.
