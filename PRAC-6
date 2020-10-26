@@ -1,0 +1,45 @@
+•  Steps and Commands:
+
+a. Install NFS server:
+
+   rumpa@rumpa:~$ sudo apt-get -y install kernel-server
+
+   rumpa@rumpa:~$ sudo apt-get -y install nfs-kernel-server
+
+b. Command to enable a service:  
+   
+   rumpa@rumpa:~$ sudo systemctl enable nfs-kernel-server
+
+c. Now user needs to create a directory to show the function of NFS that is the mounting process
+
+   rumpa@rumpa:~$ mkdir demo_dir
+   rumpa@rumpa:~$ vi a.txt
+   rumpa@rumpa:~$ ls a.txt
+   rumpa@rumpa:~$ mv a.txt demo_dir
+   rumpa@rumpa:~$ ls /home/rumpa/demo_dirr
+
+d. Now we have to mention our /directory_path ip_address (permissions), we need to give rw (read,write) permission,
+   the commands for this is as follows:
+
+   rumpa@rumpa:~$ sudo vi /etc/exports
+   rumpa@rumpa:~$cat /etc/exports
+  
+   >After mentioning the /directory_path ip_address (permissions), it should look like this.
+    /home/rumpa/demo_dirr 127.0.0.1(rw)
+
+e. Now to check the exports:
+   
+   rumpa@rumpa:~$ sudo exportfs -ra
+
+f. To allow file sharing between systems on your network, the command is:
+  
+   rumpa@rumpa:~$ sudo apt-get -y install nfs-common
+
+g. Now to mount the file:
+
+   rumpa@rumpa:~$ sudo mount -t nfs 127.0.01:/home/yash/demo_dirr /home/yash_directory
+
+h. Lastly, then the user can check for the mounted file in the directory that user has made:
+ 
+   rumpa@rumpa:~$ cd /home/rumpa_directory
+   ls
