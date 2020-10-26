@@ -1,0 +1,31 @@
+• Steps and Commands:
+
+1. We need update:
+   rumpa@rumpa:~$ sudo apt update -y
+
+2. Then install wget:
+   rumpa@rumpa:~$ sudo apt install -y wget
+
+3. Then we need to wget the mysql deb files:
+   rumpa@rumpa:~$ sudo apt install -y wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+
+4. Install the deb files:
+   rumpa@rumpa:~$ sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
+
+5. We need update:
+   rumpa@rumpa:~$ sudo apt update
+
+6. Then install community server:
+   rumpa@rumpa:~$ sudo apt install mysql-community-server
+
+7. To enable mysql:
+   rumpa@rumpa:~$ sudo systemctl enable --now mysql
+
+8. To check the status:
+   rumpa@rumpa:~$ sudo systemctl status mysql
+
+9. To test if the database server is working fine by creating a test database:
+   rumpa@rumpa:~$ sudo mysql -u root -p
+
+10. Then start the mysqld service:
+    rumpa@rumpa:~$ sudo service mysqld star
